@@ -40,3 +40,26 @@ func _physics_process(delta):
 	# através de interpolação linear. Nesse caso, do valor atual para zero com 
 	# um peso de 20%. Quanto maior a porcentagem maior o tempo da transição. 
 	velocity.x = lerp(velocity.x, 0, 0.2)
+
+
+# Reinicia o jogo para a cena "Level1" quando o personangem cai. 
+func _on_Fallzone_body_entered(body):
+	get_tree().change_scene("res://Level1.tscn")
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
