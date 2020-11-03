@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://WatchBoy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world_tileset.tres" type="TileSet" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://ASSETS/images/background/set2_background.png" type="Texture" id=4]
 [ext_resource path="res://ASSETS/images/background/set2_tiles.png" type="Texture" id=5]
 [ext_resource path="res://Coin.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ASSETS/images/HUD/coin_gold.png" type="Texture" id=7]
+[ext_resource path="res://ASSETS/fonts/BalsamiqSans-Bold.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://HUD.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 160, 32 )
@@ -15,6 +18,21 @@ extents = Vector2( 256, 32 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 400.375, 10 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 0.235294 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=5]
+size = 52
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 70
+font_data = ExtResource( 8 )
 
 [node name="Level1" type="Node2D"]
 position = Vector2( 282.785, 238.668 )
@@ -45,7 +63,7 @@ tile_set = ExtResource( 2 )
 collision_layer = 2147483650
 collision_mask = 49
 format = 1
-tile_data = PoolIntArray( -589825, 3, 0, -655360, 4, 0, -524289, 0, 0, -589824, 0, 0, -458753, 0, 0, -524288, 0, 0, -393217, 0, 0, -458752, 0, 0, -327681, 0, 0, -393216, 0, 0, -262145, 0, 0, -327680, 0, 0, -196609, 0, 0, -262144, 0, 0, -262115, 1, 0, -262114, 2, 0, -262113, 4, 0, -131073, 0, 0, -196608, 0, 0, -196579, 0, 0, -196578, 0, 0, -196577, 0, 0, -65537, 0, 0, -131072, 0, 0, -1, 0, 0, -65536, 0, 0, -65431, 5, 0, -65430, 6, 0, 65535, 0, 0, 0, 0, 0, 131071, 0, 0, 65536, 0, 0, 65570, 5, 0, 65571, 6, 0, 196607, 0, 0, 131072, 0, 0, 131089, 1, 0, 131090, 2, 0, 131091, 2, 0, 131092, 2, 0, 131093, 2, 0, 131094, 2, 0, 131095, 2, 0, 131096, 4, 0, 131127, 5, 0, 131128, 2, 0, 131129, 6, 0, 131139, 1, 0, 131140, 2, 0, 131141, 2, 0, 131142, 2, 0, 131143, 2, 0, 131144, 4, 0, 131166, 3, 0, 131167, 2, 0, 131168, 2, 0, 131169, 2, 0, 131170, 2, 0, 131171, 2, 0, 131172, 2, 0, 131173, 4, 0, 131175, 3, 0, 131176, 4, 0, 262143, 0, 0, 196608, 0, 0, 196609, 1, 0, 196610, 2, 0, 196611, 2, 0, 196612, 2, 0, 196613, 2, 0, 196614, 2, 0, 196615, 2, 0, 196616, 2, 0, 196617, 2, 0, 196618, 2, 0, 196619, 2, 0, 196620, 2, 0, 196621, 2, 0, 196622, 2, 0, 196623, 4, 0, 196625, 0, 0, 196626, 0, 0, 196627, 0, 0, 196628, 0, 0, 196629, 0, 0, 196630, 0, 0, 196631, 0, 0, 196632, 0, 0, 196675, 0, 0, 196676, 0, 0, 196677, 0, 0, 196678, 0, 0, 196679, 0, 0, 196680, 0, 0, 196698, 1, 0, 196699, 4, 0, 196702, 0, 0, 196703, 0, 0, 196704, 0, 0, 196705, 0, 0, 196706, 0, 0, 196707, 0, 0, 196708, 0, 0, 196709, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262182, 1, 0, 262183, 2, 0, 262184, 2, 0, 262185, 4, 0, 262225, 5, 0, 262226, 6, 0, 262250, 1, 0, 262251, 2, 0, 262252, 2, 0, 262253, 2, 0, 262254, 4, 0, 393215, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327708, 5, 0, 327709, 6, 0, 327727, 1, 0, 327728, 2, 0, 327729, 2, 0, 327730, 2, 0, 327731, 2, 0, 327732, 4, 0, 327740, 1, 0, 327741, 2, 0, 327742, 2, 0, 327743, 2, 0, 327744, 4, 0, 327786, 0, 0, 327787, 0, 0, 327788, 0, 0, 327789, 0, 0, 327790, 0, 0, 393263, 0, 0, 393264, 0, 0, 393265, 0, 0, 393266, 0, 0, 393267, 0, 0, 393268, 0, 0, 393276, 0, 0, 393277, 0, 0, 393278, 0, 0, 393279, 0, 0, 393280, 0, 0, 393302, 5, 0, 393303, 2, 0, 393304, 2, 0, 393305, 2, 0, 393306, 2, 0, 393307, 6, 0, 458786, 1, 0, 458787, 2, 0, 458788, 2, 0, 458789, 2, 0, 458790, 2, 0, 458791, 2, 0, 458792, 2, 0, 458793, 2, 0, 458794, 2, 0, 458795, 4, 0, 458812, 0, 0, 458813, 0, 0, 458814, 0, 0, 458815, 0, 0, 458816, 0, 0, 458828, 5, 0, 458829, 2, 0, 458830, 6, 0, 458860, 5, 0, 458861, 2, 0, 458862, 2, 0, 458863, 2, 0, 458864, 2, 0, 458865, 6, 0, 524322, 0, 0, 524323, 0, 0, 524324, 0, 0, 524325, 0, 0, 524326, 0, 0, 524327, 0, 0, 524328, 0, 0, 524329, 0, 0, 524330, 0, 0, 524331, 0, 0, 524397, 0, 0, 524398, 0, 0, 524399, 0, 0, 524400, 0, 0, 589858, 0, 0, 589859, 0, 0, 589860, 0, 0, 589861, 0, 0, 589862, 0, 0, 589863, 0, 0, 589864, 0, 0, 589865, 0, 0, 589866, 0, 0, 589867, 0, 0 )
+tile_data = PoolIntArray( -589825, 3, 0, -655360, 4, 0, -524289, 0, 0, -589824, 0, 0, -458753, 0, 0, -524288, 0, 0, -393217, 0, 0, -458752, 0, 0, -327681, 0, 0, -393216, 0, 0, -262145, 0, 0, -327680, 0, 0, -196609, 0, 0, -262144, 0, 0, -131073, 0, 0, -196608, 0, 0, -65537, 0, 0, -131072, 0, 0, -1, 0, 0, -65536, 0, 0, -65510, 3, 0, -65509, 2, 0, -65508, 2, 0, -65507, 4, 0, -65431, 5, 0, -65430, 6, 0, 65535, 0, 0, 0, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 131071, 0, 0, 65536, 0, 0, 65570, 5, 0, 65571, 6, 0, 196607, 0, 0, 131072, 0, 0, 131089, 1, 0, 131090, 2, 0, 131091, 2, 0, 131092, 2, 0, 131093, 2, 0, 131094, 2, 0, 131095, 2, 0, 131096, 4, 0, 131127, 5, 0, 131128, 2, 0, 131129, 6, 0, 131139, 1, 0, 131140, 2, 0, 131141, 2, 0, 131142, 2, 0, 131143, 2, 0, 131144, 4, 0, 131166, 3, 0, 131167, 2, 0, 131168, 2, 0, 131169, 2, 0, 131170, 2, 0, 131171, 2, 0, 131172, 2, 0, 131173, 4, 0, 131175, 3, 0, 131176, 4, 0, 262143, 0, 0, 196608, 0, 0, 196609, 1, 0, 196610, 2, 0, 196611, 2, 0, 196612, 2, 0, 196613, 2, 0, 196614, 2, 0, 196615, 2, 0, 196616, 2, 0, 196617, 2, 0, 196618, 2, 0, 196619, 2, 0, 196620, 2, 0, 196621, 2, 0, 196622, 2, 0, 196623, 4, 0, 196625, 0, 0, 196626, 0, 0, 196627, 0, 0, 196628, 0, 0, 196629, 0, 0, 196630, 0, 0, 196631, 0, 0, 196632, 0, 0, 196675, 0, 0, 196676, 0, 0, 196677, 0, 0, 196678, 0, 0, 196679, 0, 0, 196680, 0, 0, 196698, 1, 0, 196699, 4, 0, 196702, 0, 0, 196703, 0, 0, 196704, 0, 0, 196705, 0, 0, 196706, 0, 0, 196707, 0, 0, 196708, 0, 0, 196709, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262182, 1, 0, 262183, 2, 0, 262184, 2, 0, 262185, 4, 0, 262225, 5, 0, 262226, 6, 0, 262250, 1, 0, 262251, 2, 0, 262252, 2, 0, 262253, 2, 0, 262254, 4, 0, 393215, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327708, 5, 0, 327709, 6, 0, 327727, 1, 0, 327728, 2, 0, 327729, 2, 0, 327730, 2, 0, 327731, 2, 0, 327732, 4, 0, 327740, 1, 0, 327741, 2, 0, 327742, 2, 0, 327743, 2, 0, 327744, 4, 0, 327786, 0, 0, 327787, 0, 0, 327788, 0, 0, 327789, 0, 0, 327790, 0, 0, 393263, 0, 0, 393264, 0, 0, 393265, 0, 0, 393266, 0, 0, 393267, 0, 0, 393268, 0, 0, 393276, 0, 0, 393277, 0, 0, 393278, 0, 0, 393279, 0, 0, 393280, 0, 0, 393302, 5, 0, 393303, 2, 0, 393304, 2, 0, 393305, 2, 0, 393306, 2, 0, 393307, 6, 0, 458786, 1, 0, 458787, 2, 0, 458788, 2, 0, 458789, 2, 0, 458790, 2, 0, 458791, 2, 0, 458792, 2, 0, 458793, 2, 0, 458794, 2, 0, 458795, 4, 0, 458812, 0, 0, 458813, 0, 0, 458814, 0, 0, 458815, 0, 0, 458816, 0, 0, 458828, 5, 0, 458829, 2, 0, 458830, 6, 0, 458860, 5, 0, 458861, 2, 0, 458862, 2, 0, 458863, 2, 0, 458864, 2, 0, 458865, 6, 0, 524322, 0, 0, 524323, 0, 0, 524324, 0, 0, 524325, 0, 0, 524326, 0, 0, 524327, 0, 0, 524328, 0, 0, 524329, 0, 0, 524330, 0, 0, 524331, 0, 0, 524397, 0, 0, 524398, 0, 0, 524399, 0, 0, 524400, 0, 0, 589858, 0, 0, 589859, 0, 0, 589860, 0, 0, 589861, 0, 0, 589862, 0, 0, 589863, 0, 0, 589864, 0, 0, 589865, 0, 0, 589866, 0, 0, 589867, 0, 0 )
 
 [node name="WatchBoy" parent="." instance=ExtResource( 1 )]
 position = Vector2( 520.756, 59.8486 )
@@ -78,28 +96,6 @@ scale = Vector2( 4, 4 )
 texture = ExtResource( 4 )
 centered = false
 
-[node name="Back Blocks" type="ParallaxLayer" parent="ParallaxBackground"]
-modulate = Color( 0.572549, 0.380392, 0.745098, 1 )
-position = Vector2( 0, -1500 )
-motion_scale = Vector2( 0.2, 0.2 )
-motion_mirroring = Vector2( 5120, 3840 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Back Blocks"]
-scale = Vector2( 8, 8 )
-texture = ExtResource( 5 )
-centered = false
-
-[node name="Middle Blocks" type="ParallaxLayer" parent="ParallaxBackground"]
-modulate = Color( 0.847059, 0.8, 0.890196, 1 )
-position = Vector2( 0, -1300 )
-motion_scale = Vector2( 0.4, 0.4 )
-motion_mirroring = Vector2( 3840, 2880 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/Middle Blocks"]
-scale = Vector2( 6, 6 )
-texture = ExtResource( 5 )
-centered = false
-
 [node name="Nearby Blocks" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2( 0, -1300 )
 motion_scale = Vector2( 0.7, 0.7 )
@@ -121,39 +117,73 @@ __meta__ = {
 scale = Vector2( 10, 10 )
 shape = SubResource( 3 )
 
-[node name="Coin1" parent="." instance=ExtResource( 6 )]
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource( 9 )
+
+[node name="Panel" type="Panel" parent="HUD"]
+margin_left = 90.0
+margin_top = 21.0
+margin_right = 324.0
+margin_bottom = 121.0
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="HUD"]
+margin_left = 106.434
+margin_top = 38.6492
+margin_right = 167.434
+margin_bottom = 99.6492
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="x" type="Label" parent="HUD"]
+margin_left = 180.135
+margin_top = 39.1622
+margin_right = 207.135
+margin_bottom = 102.162
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 0.733333, 0, 1 )
+text = "x"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coins" type="Label" parent="HUD"]
+margin_left = 215.841
+margin_top = 33.2978
+margin_right = 305.841
+margin_bottom = 117.298
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 1, 0.733333, 0, 1 )
+text = "##"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin1" parent="Coins" instance=ExtResource( 6 )]
 position = Vector2( 675.723, 83.0623 )
 
-[node name="Coin2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 469.189, -168.369 )
+[node name="Coin2" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( 1829.21, 81.332 )
 
-[node name="Coin3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 761.03, -253.677 )
+[node name="Coin3" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( 2277.21, 209.332 )
 
-[node name="Coin4" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1959.82, -123.471 )
+[node name="Coin4" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( 4389.21, 273.332 )
 
-[node name="Coin5" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2615.34, 617.355 )
-
-[node name="Coin6" parent="." instance=ExtResource( 6 )]
-position = Vector2( 3623.31, 273.881 )
-
-[node name="Coin7" parent="." instance=ExtResource( 6 )]
-position = Vector2( 3623.31, 83.0623 )
-
-[node name="Coin8" parent="." instance=ExtResource( 6 )]
-position = Vector2( 4265.36, 271.636 )
-
-[node name="Coin9" parent="." instance=ExtResource( 6 )]
-position = Vector2( 5823.34, 547.762 )
-
-[node name="Coin10" parent="." instance=ExtResource( 6 )]
-position = Vector2( 6797.64, 294.085 )
-
-[node name="Coin11" parent="." instance=ExtResource( 6 )]
-position = Vector2( 6795.39, 74.0826 )
-
-[node name="Coin12" parent="." instance=ExtResource( 6 )]
-position = Vector2( 6952.54, 617.355 )
+[node name="Coin5" parent="Coins" instance=ExtResource( 6 )]
+position = Vector2( 6949.21, 657.332 )
 [connection signal="body_entered" from="Fallzone" to="WatchBoy" method="_on_Fallzone_body_entered"]
+[connection signal="coin_collected" from="Coins/Coin1" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Coins/Coin2" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Coins/Coin3" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Coins/Coin4" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="Coins/Coin5" to="HUD" method="_on_coin_collected"]

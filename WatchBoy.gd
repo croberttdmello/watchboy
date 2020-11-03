@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 var velocity = Vector2(0,0)
-var coins  = 0
 const SPEED = 300
 const GRAVITY = 25
 const JUMP_FORCE = -900
@@ -42,13 +41,9 @@ func _physics_process(delta):
 	# um peso de 20%. Quanto maior a porcentagem maior o tempo da transição. 
 	velocity.x = lerp(velocity.x, 0, 0.2)
 	
-	if coins == 5:
-		get_tree().change_scene("res://Level1.tscn")
 		
 # Reinicia o jogo para a cena "Level1" quando o personangem cai. 
 func _on_Fallzone_body_entered(body):
 	get_tree().change_scene("res://Level1.tscn")
 	
-func add_coin():
-	coins += 1
 	
